@@ -13,12 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from rest_framework import routers
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from recipes.views import RecipesAPIView
+
+from recipes.views import *
+
+
+router = routers.SimpleRouter()
+router.register(r'recipes', RecipesViewsSet, basename='recipes')
+router.register(r'category', CategoryViewsSet, basename='category')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/r1/recipeslist/', RecipesAPIView.as_view())
+    path('api/v1/', include(router.urls)),
 ]

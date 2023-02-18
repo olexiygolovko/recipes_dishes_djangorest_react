@@ -1,8 +1,19 @@
+from unicodedata import category
+
 from rest_framework import serializers
-from .models import Recipes
+from .models import Recipes, Category
 
 
 class RecipesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipes
-        fields = ('title', 'category_id')
+        fields = '__all__'
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+
