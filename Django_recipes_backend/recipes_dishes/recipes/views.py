@@ -1,43 +1,23 @@
-from django.forms import model_to_dict
-from rest_framework import generics, viewsets
-from django.shortcuts import render
-from rest_framework.views import APIView
+from .models import Recipes
+from .serializers import CategoriesSerializer, DishesSerializer, RecipeSerializer
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.response import Response
-from rest_framework.decorators import action
-
-from .models import Recipes, Category
-from .serialisers import RecipesSerializer, CategorySerializer
+from rest_framework.decorators import api_view
 
 
-class RecipesViewsSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = RecipesSerializer
-
-    def get_queryset(self):
-        pk = self.kwargs.get('pk')
-
-        if not pk:
-            return Recipes.objects.all()
-
-        return Recipes.objects.filter(pk=pk)
-
-    @action(methods=['get'], detail=True)
-    def category(self, request, pk=None):
-        category = Category.objects.get(pk=pk)
-        return Response({'category': category.name})
+class Recipe_view(ReadOnlyModelViewSet):
+    queryset = Recipes.objects.all()
+    serializer_class = RecipeSerializer
 
 
-class CategoryViewsSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = CategorySerializer
+class Categories_view(ReadOnlyModelViewSet):
+    queryset = Recipes.objects.values('categoryType').distinct()  # Извлечение уникальных значений поля
+    serializer_class = CategoriesSerializer
 
-    def get_queryset(self):
-        pk = self.kwargs.get('pk')
 
-        if not pk:
-            return Category.objects.all()
-
-        return Category.objects.filter(pk=pk)
-
-    @action(methods=['get'], detail=True)
-    def category(self, request, pk=None):
-        category = Category.objects.get(pk=pk)
-        return Response({'category': category.name})
+@api_view(['GET'])
+def dishes_view(request):
+    if request.method == 'GET':
+        dishes = Recipes.objects.filter(categoryType=request.query_params['category'])
+        serializer = DishesSerializer(dishes, many=True)
+        return Response(serializer.data)

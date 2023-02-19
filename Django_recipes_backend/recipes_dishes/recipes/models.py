@@ -2,19 +2,21 @@ from django.db import models
 
 
 class Recipes(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField(blank=True)
-    time_created = models.DateTimeField(auto_now_add=True)
-    time_updated = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
-    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+
+    CATEGORY_CHOICES = (
+        ('Супы', 'Супы'),
+        ('Закуски', 'Закуски'),
+        ('Салаты', 'Салаты'),
+        ('Дессерты', 'Дессерты'),
+        ('Вторые блюда', 'Вторые блюда')
+    )
+    categoryType = models.CharField(max_length=20, choices=CATEGORY_CHOICES, verbose_name='Категория')
+    name = models.CharField(max_length=256, verbose_name='Наименование')
+    recipe = models.TextField(verbose_name='Рецепт')
+
+    class Meta:
+        verbose_name_plural = 'Рецепты'
+        verbose_name = 'Рецепты'
 
     def __str__(self):
-        return self.title
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True)
-
-    def __str__(self):
-        return self.name
+        return f'{self.name} | {self.categoryType}'
