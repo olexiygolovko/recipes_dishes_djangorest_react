@@ -28,9 +28,9 @@ router.register('recipe', Recipe_view)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('recipe/', include(router.urls)),
-    path('dishes/', dishes_view),
+    path('api/', include(router.urls)),
+    path('api/recipe/', include(router.urls)),
+    path('api/dishes/', dishes_view),
     path('openapi', get_schema_view(
         title="Recipes",
         description="Culinary Eden is a real find of a culinary specialist. Step by step recipes with photos. Recipes that are easy to make at home.",

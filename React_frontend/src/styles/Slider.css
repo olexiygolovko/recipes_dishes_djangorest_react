@@ -1,0 +1,30 @@
+.slider {
+    position: relative;
+    width: 70%;
+    height: 500px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 60px;
+    box-sizing: border-box;
+    border: 2mm ridge rgb(191, 45, 176);
+    align-items: center;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1500px));
+    grid-template-rows: auto;
+}
+
+.slider-img {
+    position: absolute;
+    width: 1300px;
+    height: 500px;
+    transition: all 0.3s;
+}
+
+.slider-img-prev {
+    transform: translateX(-100%);
+}
+
+.slider-img-next {
+    transform: translateX(100%);
+}

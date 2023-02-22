@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import Main from './Main';
+import CategoryRubric from './CategoryRubric';
 
 
 function Category() {
@@ -12,7 +12,7 @@ function Category() {
 
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/dishes/?category=${category}`).then(res => {
+        axios.get(`http://127.0.0.1:8000/api/dishes/?category=${category}`).then(res => {
             setDishes(res.data);
             setLoading(false);
         });
@@ -25,8 +25,8 @@ function Category() {
 
     return (
         <>
-            <Main />
-            <h1 class='categories-title'>{category}:</h1>
+            <CategoryRubric />
+            <h1 className='categories-title'>{category}:</h1>
             <div className='recipe'>
                 {dishes.map((name) => (
                 <p key={name.id}><a className="r" href={`/recipe/${name.id}`}>{name.name}</a></p>
