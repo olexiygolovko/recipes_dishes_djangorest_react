@@ -39,5 +39,5 @@ React:
        3)Запускаем сервер - npm start
 
 
-Автор проекта: Головко Алексей
-e-mail: oleksiiholovko92@gmail.com
+|Автор проекта: Головко Алексей|
+e-mail: oleksiiholovko92@gmail.com|
