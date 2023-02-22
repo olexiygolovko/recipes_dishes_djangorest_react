@@ -14,11 +14,11 @@
        2)Клонируем репозиторий - git clone https://github.com/olexiygolovko/recipes_dishes_djangorest_react
 
 Django:
+
        1)pip install djangorestframework
        2)pip install django-cors-headers
        3)pip install coreapi pyyaml
        4)pip install django-rest-swagger
-
        5)Запускаем сервер - python manage.py runserver
 
        Адреса API проекта:
@@ -31,7 +31,7 @@ Django:
        Пример рецепта блюда - http://127.0.0.1:8000/api/recipe/1/
 
 React:
-       
+
        1)Переходим в корневую директорую
        2)Установка пакетов - npm install
 
