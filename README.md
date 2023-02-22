@@ -13,7 +13,7 @@
        1)Устанавливаем виртуальное окружение - python -m venv venv
        2)Клонируем репозиторий - git clone https://github.com/olexiygolovko/recipes_dishes_djangorest_react
 
-Django
+Django:
        1)pip install djangorestframework
        2)pip install django-cors-headers
        3)pip install coreapi pyyaml
@@ -30,7 +30,7 @@ Django
        Список всех рецептов - http://127.0.0.1:8000/api/recipe/
        Пример рецепта блюда - http://127.0.0.1:8000/api/recipe/1/
 
-React
+React:
        1)Переходим в корневую директорую
        2)Установка пакетов - npm install
 
