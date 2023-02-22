@@ -10,6 +10,7 @@
         а из категории — на любой рецепт этой категории.
 
 Настройка проекта:
+
        1)Устанавливаем виртуальное окружение - python -m venv venv
        2)Клонируем репозиторий - git clone https://github.com/olexiygolovko/recipes_dishes_djangorest_react
 
