@@ -11,7 +11,7 @@ class Recipe_view(ReadOnlyModelViewSet):
 
 
 class Categories_view(ReadOnlyModelViewSet):
-    queryset = Recipes.objects.values('categoryType').distinct()  # Извлечение уникальных значений поля
+    queryset = Recipes.objects.values('categoryType').distinct()  # Retrieving unique field values
     serializer_class = CategoriesSerializer
 
 

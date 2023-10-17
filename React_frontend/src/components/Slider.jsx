@@ -8,36 +8,36 @@ import '../styles/Slider.css'
 
 
 const img = [
-    <img key={slide1} src={slide1} />,
-    <img key={slide2} src={slide2} />,
-    <img key={slide3} src={slide3} />,
-    <img key={slide4} src={slide4} />,
-    <img key={slide5} src={slide5} />,
+    <img key={slide1} src={slide1} alt={'photos of dishes'} />,
+    <img key={slide2} src={slide2} alt={'photos of dishes'} />,
+    <img key={slide3} src={slide3} alt={'photos of dishes'} />,
+    <img key={slide4} src={slide4} alt={'photos of dishes'} />,
+    <img key={slide5} src={slide5} alt={'photos of dishes'} />,
 ]
 
 function Slider() {
-    // Индекс текущего слайда
+    // Current slide index
     const [activeIndex, setActiveIndex] = useState(0);
 
     // Хук Effect
     useEffect(() => {
-        // Запускаем интервал
+        // Starting the interval
         const interval = setInterval(() => {
-            // Меняем состояние
+            // Changing the state
             setActiveIndex((current) => {
-                // Вычисляем индекс следующего слайда, который должен вывестись
+                // Calculate the index of the next slide that should be displayed
                 const res = current === img.length - 1 ? 0 : current + 1
-                // Возвращаем индекс
+                //Returning the index
                 return res
             })
         }, 3000)
-        // Выключаем интервал
+        // Turn off the interval
         return () => clearInterval()
     }, [])
 
-    // Вычисляем индекс предыдущего слайда
+    // Calculate the index of the previous slide
     const prevImgIndex = activeIndex ? activeIndex - 1 : img.length - 1
-    // Вычисляем индекс следующего слайда
+    // Calculate the index of the next slide
     const nextImgIndex = activeIndex === img.length - 1 ? 0 : activeIndex + 1
     return (
         <div className="slider">

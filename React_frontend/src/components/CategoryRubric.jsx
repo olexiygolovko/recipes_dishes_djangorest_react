@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 function Main() {
-    const [isLoading, setLoading] = useState(true);  // Флаг готовности результата axios
+    const [isLoading, setLoading] = useState(true);  //axios result ready flag
     const [categories, setCategories] = useState();
 
     useEffect(() => {
@@ -14,15 +14,15 @@ function Main() {
         });
     }, []);
 
-    // Если флаг isLoading = false то выводим "Loading..."
+    //If the flag isLoading = false then we output "Loading..."
     if (isLoading) {
         return <h1>Loading...</h1>;
     }
 
-    // Иначе выводим полученные из axios данные
+    // Otherwise, we display the data received from axios
     return (
         <>
-        <h1>Категории блюд</h1>
+        <h1>Dishes categories</h1>
         <div className="button">
             {categories.map((name) => (
                 <a key={name.categoryType} className="s" href={`/category/${name.categoryType}`}>{name.categoryType}</a>

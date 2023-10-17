@@ -7,7 +7,7 @@ import Main from './Main'
 import Category from './Category'
 import Recipe from './Recipe'
 import CategoryRubric from './CategoryRubric'
-import Slider from './Slider'
+
 
 
 function App() {
@@ -15,14 +15,15 @@ function App() {
 		<Router>
 		<div className='main'>
 			<div className='button'>
-				<button><NavLink className={({ isActive }) =>(isActive ? "active" : "normal")} to={'/'}>🏠 Главная</NavLink></button>
-				<button><NavLink className={({ isActive }) =>(isActive ? "active" : "normal")} to={'/category/'}>Категории</NavLink></button>
+				<button><NavLink className={({ isActive }) =>(isActive ? "active" : "normal")} to={'/'}>🏠 Home</NavLink></button>
+				<button><NavLink className={({ isActive }) =>(isActive ? "active" : "normal")} to={'/category/'}>Category</NavLink></button>
 			</div>
 				<Routes>
 					<Route path="/" element={<Main />} />
-					<Route exact path={'/category/:category'} element={<Category />} />
-					<Route exact path={'/category/'} element={<CategoryRubric />} />
-					<Route exact path={'/recipe/:id'} element={<Recipe />} />
+					<Route path={'/category/'} element={<CategoryRubric />} />
+					<Route path={'/category/:category'} element={<Category />} />
+					<Route path={'/recipe/:id'} element={<Recipe />} />
+					<Route path={'*'} element={<h1>Page not found 😅</h1>} />
 				</Routes>
 			</div>
 		</Router>

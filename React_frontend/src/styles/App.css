@@ -25,7 +25,7 @@ button, select {
     border-radius: 9px;
     font-size: 1.2em;
     color: rgb(255, 255, 255);
-    background: rgb(191, 45, 176);
+    background: rgb(96, 77, 94);
     transition: 0.3s;
   }
 
@@ -45,11 +45,10 @@ div .button {
 
 }
 .active{
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
     color: rgb(255, 255, 255);
     text-decoration: none;
-
 }
 
 .normal {
@@ -73,7 +72,7 @@ a {
     border-radius: 9px;
     font-size: 1.2em;
     color: rgb(255, 255, 255);
-    background: rgb(191, 45, 176);
+    background: rgb(96, 77, 94);
     transition: 0.3s;
 }
 
@@ -97,12 +96,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1600px));
     grid-template-rows: auto;
-    /* Ваши стили */
+
     background: linear-gradient(-45deg,
-    #ee7752, /* Первый цвет */
-    #e73c7e, /* Второй цвет */
-    #23a6d5, /* Третий цвет */
-    #23d5ab /* Четвертый цвет */
+    #ee7752, /* First color */
+    #e73c7e, /* Second color */
+    #23a6d5, /* Third color */
+    #23d5ab /* Fourth color */
     );
     background-size: 400% 400%;
     animation: gradient 45s ease infinite;
